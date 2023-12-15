@@ -31,6 +31,11 @@ mongo_collection = mongo_db['clientes']
 # Conexão com o banco Redis
 redis_client = redis.StrictRedis(host='localhost', port=6379, decode_responses=True)
 
+@app.route('/', methods=['GET'])
+def index():
+    return "Bem-vindo à página inicial!"
+
+
 @app.route('/clientes', methods=['GET'])
 def get_clientes():
     # Consulta no banco PostgreSQL
