@@ -14,7 +14,7 @@ POSTGRES_DB = config('POSTGRES_DB')
 POSTGRES_USER = config('POSTGRES_USER')
 POSTGRES_PASSWORD = config('POSTGRES_PASSWORD')
 
-# Conexão com o banco PostgreSQL
+# Conexão com o PostgreSQL
 pg_conn = psycopg2.connect(
     host=POSTGRES_HOST,
     database=POSTGRES_DB,
@@ -23,17 +23,17 @@ pg_conn = psycopg2.connect(
 )
 pg_cursor = pg_conn.cursor()
 
-# Conexão com o banco MongoDB
+# Conexão com o MongoDB
 mongo_client = MongoClient('mongodb://localhost:27017')
 mongo_db = mongo_client['base_2']
 mongo_collection = mongo_db['clientes']
 
-# Conexão com o banco Redis
+# Conexão com o Redis
 redis_client = redis.StrictRedis(host='localhost', port=6379, decode_responses=True)
 
 @app.route('/', methods=['GET'])
 def index():
-    return "Bem-vindo à página inicial!"
+    return "Página inicial"
 
 
 @app.route('/clientes', methods=['GET'])
