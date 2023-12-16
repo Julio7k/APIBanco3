@@ -48,7 +48,7 @@ def get_clientes():
     # Combina os resultados
     result = {
         'clientes_postgres': [dict(zip(['id', 'cpf', 'nome', 'endereco', 'cidade', 'uf', 'email'], cliente)) for cliente in clientes_pg],
-        'clientes_mongo': [dict(cliente) if not isinstance(cliente['_id'], ObjectId) else {**cliente, '_id': str(cliente['_id'])} for cliente in clientes_mongo]
+        'clientes_mongo': [dict(nome) if not isinstance(nome['_id'], ObjectId) else {**nome, '_id': str(nome['_id'])} for nome in clientes_mongo]
     }
 
     # Armazena os resultados no Redis
